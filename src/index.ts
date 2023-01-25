@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
+import { db } from './database/knex'
 
+// ... configurações do express
 const app = express()
 
 app.use(cors())
@@ -10,9 +12,10 @@ app.listen(3003, () => {
     console.log(`Servidor rodando na porta ${3003}`)
 })
 
+
 app.get("/ping", async (req: Request, res: Response) => {
     try {
-        res.status(200).send({ message: "Pong!" })
+		res.status(200).send({ message: "Pong!" })
     } catch (error) {
         console.log(error)
 
